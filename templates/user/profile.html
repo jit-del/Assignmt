@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+</head>
+<body>
+<center>
+    <h1>WelCome :-{{ data.name }}</h1><hr>
+
+    <h2><u>Student Profile</u></h2>
+
+    <table border="2" width="600">
+        <tr>
+            <th>NAME</th>
+            <th>PHONE NO</th>
+            <th>DOB</th>
+            <th>PHOTO</th>
+            <th>MARK</th>
+            <th>EDIT</th>
+        </tr>
+            <tr>
+            <th>{{ data.name }}</th>
+            <th>{{ data.phone }}</th>
+            <th>{{ data.dob }}</th>
+            <th><img src="{{ data.image.url }}" height="50"></th>
+                <th>{{ data.mark }}</th>
+                <th><a href="{% url 's_edit'%}">EDIT</a></th>
+        </tr>
+    </table>
+<h3><a href="{% url 's_logout' %}">Logout</a></h3>
+
+    {% if messages %}
+        {% for msg in messages %}
+            {{ msg }}
+        {% endfor %}
+    {% endif %}
+</center>
+</body>

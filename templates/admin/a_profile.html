@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+</head>
+<body>
+<center>
+    <h1>WelCome :-{{ data1.name }}</h1>
+<h2><u>Your Profile</u></h2>
+<table border="2" width="600">
+        <tr>
+            <th>NAME</th>
+            <th>PHONE NO</th>
+            <th>DOB</th>
+            <th>PHOTO</th>
+        </tr>
+            <tr>
+            <th>{{ data1.name }}</th>
+            <th>{{ data1.phone }}</th>
+            <th>{{ data1.dob }}</th>
+            <th><img src="{{ data1.image.url }}" height="100"></th>
+        </tr>
+    </table>
+            <h3><a href="{% url 'a_logout' %}">Logout</a></h3>
+    <h2><u>Student Details</u></h2>
+    <table border="2" width="600">
+        <tr>
+            <th>NAME</th>
+            <th>PHONE NO</th>
+            <th>DOB</th>
+            <th>PHOTO</th>
+            <th>MARK</th>
+            <th>EDIT</th>
+{#            <th>DELETE</th>#}
+        </tr>
+        {% for x in data %}
+            <tr>
+            <th>{{ x.name }}</th>
+            <th>{{ x.phone }}</th>
+            <th>{{ x.dob }}</th>
+            <th><img src="{{ x.image.url }}" height="50"></th>
+                <th>{{ x.mark }}</th>
+                <th><a href="{% url 's_update' x.pk %}">EDIT</a> </th>
+        </tr>
+        {% endfor %}
+    </table>
+{% if messages %}
+        {% for msg in messages %}
+            {{ msg }}
+        {% endfor %}
+    {% endif %}
+</center>
+</body>
+</html>

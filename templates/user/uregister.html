@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>student login</title>
+</head>
+<body>
+<center><h1>Student Register</h1></center><hr>
+<form action="{% url 'usucessregitser' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+   <center>
+            <th>Name: <input type="text" required name="name"></th><br><br>
+            <th>DOB:<input type="date" required name="dob"></th><br><br>
+            <th>Phone:<input type="number" maxlength="10"  minlength="10" required name="phone"></th><br><br>
+            <th>Password:<input type="password" name="password" required></th><br><br>
+            <th>Image:<input type="file" required name="image"></th><br><br>
+   </center>
+    <center><span ><button type="submit" style="background-color: darkgreen">Save</button> </span></center>
+</form>
+</body>
+</html>
